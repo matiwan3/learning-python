@@ -22,6 +22,6 @@ def calculate_it(nof):
 
     print(f"Total amount: {amount_check}, Average position equals: {average_position}")
     return average_position  
-
+#
 calculate_it(number_of_positions)
 
