@@ -10,7 +10,7 @@ my_font = Font(
     family = "sans serif",
     size = 20,
     weight = "bold")
-
+#
 #create frame
 my_frame = Frame(root)
 my_frame.pack(pady = 10)
