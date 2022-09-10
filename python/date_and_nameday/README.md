@@ -1,4 +1,4 @@
-### Selenium project using geckodriver (mozzila firefox driver) 
+# Selenium project using geckodriver (mozzila firefox driver) 
 <hr>
 Brief overview:  
 1. Taking data from https://halloween.friko.net/imieniny/  
