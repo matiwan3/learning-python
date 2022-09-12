@@ -1,5 +1,5 @@
 # Local_Projects: PYTHON
-### Python is the language that im currently working on a lot.  <br>Learning python gives me a lot of motivation for developing myself so in this repository Im posting lot of basics and complex projects.  
+### Python is the language that im currently working on a lot.  <br>Learning python gives me a lot of motivation for developing myself  <br>In this repository Im posting lot of basics and complex projects.  <br> I really enjoy creating webscripts using selenium and requests ⭐
 <hr>
 Python fields of interest: scripts, machine learning, data science, web apliactions (django,flask);   🐍  
 <hr>  
