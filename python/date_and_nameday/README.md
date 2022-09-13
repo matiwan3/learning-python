@@ -1,4 +1,4 @@
-# Selenium project using geckodriver (mozzila firefox driver) 
+# Selenium project using geckodriver (mozzila firefox driver) and request,bs4 libs
 <hr>
 For selenium method ❗
 Brief overview:  </br>
