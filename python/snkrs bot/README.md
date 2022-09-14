@@ -8,6 +8,5 @@ First fully functional browser bot that has the following features: <br>
 <p align="center">
 ❗IMPORTANT ❗<br>
 To use the bot in proper way input the correct email addres and password in following lines: 58,60
-</p>
-Note:
-This is open source project
+</p><br> <br>
+Note: This is open source project
