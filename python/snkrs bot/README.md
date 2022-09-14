@@ -7,6 +7,6 @@ First fully functional browser bot that has the following features: <br>
 5. ⭐ Also there is a '/quit' command that breaks the program <br> <br>
 <p align="center">
 ❗IMPORTANT ❗<br>
-To use the bot in proper way input the correct email addres and password in following lines: 58,60
-</p><br> <br>
-Note: This is open source project
+To use the bot in proper way input the correct email addres and password in following lines: 58,60 <br> >Note: This is open source project<
+</p><br> 
+
