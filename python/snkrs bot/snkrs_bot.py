@@ -31,7 +31,7 @@ def get_imieniny():
     
 def who_to_chat(username):
     
-    find_user = driver.find_element(By.XPATH,'/html/body/div[1]/div/div/div/div[2]/div/div/div/div[1]/div[1]/div[1]/div/div/div/div/div[2]/div/div/div/div/div/label/input')
+    find_user = driver.find_element(By.XPATH,'/html/body/div[1]/div/div/div/div[2]/div/div/div/div[1]/div[1]/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div/div/div/label/input')
     find_user.send_keys(username)    
     time.sleep(2)
     try:
