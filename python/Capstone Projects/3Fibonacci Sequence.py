@@ -8,12 +8,17 @@ def fib_seq(n,task):
     n1, n2 = 0,1
     count = 0
     if task == 1:
-        for i in range(n):
-            pass
+        while n2 < n:
+            # print(n1)
+            nth = n1 + n2
+            # update values
+            n1 = n2
+            n2 = nth
+            print(n2)
 
     elif task == 2:
         while count < n:
-            print(n1)
+            # print(n1)
             nth = n1 + n2
             # update values
             n1 = n2
