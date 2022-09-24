@@ -1,1 +1,1 @@
-# Face recognition program
+# Face recognition program using: deepface, Ipython.display
