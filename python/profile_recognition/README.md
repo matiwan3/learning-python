@@ -1,1 +1,1 @@
-# *Face recognition with determining: age, gender, race, emotion.Program uses: deepface, Ipython.display*
+# *Face recognition with determination: age, gender, race, emotion.Program uses: deepface, Ipython.display*
