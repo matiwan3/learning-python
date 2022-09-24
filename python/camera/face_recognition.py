@@ -1,7 +1,7 @@
 import cv2
 
-face_cascade = cv2.CascadeClassifier(r"C:\Users\mateu\Desktop\haarcascade_frontalface_default.xml") 
-eye_cascade = cv2.CascadeClassifier(r"C:\Users\mateu\Desktop\haarcascade_eye.xml")  
+face_cascade = cv2.CascadeClassifier(r"camera\haarcascade_frontalface_default.xml") 
+eye_cascade = cv2.CascadeClassifier(r"camera\haarcascade_eye.xml")  
 
 
 cap = cv2.VideoCapture(0)
