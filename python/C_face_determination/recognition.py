@@ -10,8 +10,8 @@ people_list = {
             stalone_path: 'Sylvester Stallone',
             oliwia_path: 'Olivia Brazil',
             ariana_path: 'Ariana Grande',
-            olga_path: 'Olga Ciemielewska',
-            mateusz_path: 'Mateusz Wandzlewicz'
+            olga_path: 'Olga C',
+            mateusz_path: 'Mateusz W'
 }
 total_man = 0
 total_woman = 0
