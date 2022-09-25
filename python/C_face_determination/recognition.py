@@ -1,17 +1,19 @@
 from deepface import DeepFace
 from IPython.display import Image
 
-stalone_path = r'profile_recongition\sylvester stallone.png'
-oliwia_path = r'profile_recongition\oliwia brazil.jpg'
-ariana_path = r'profile_recongition\ariana grande.jpg'
-olga_path = r'profile_recongition\Olga C.jpg'
-mateusz_path = r'profile_recongition\Mateusz W.jpg'
+stalone_path = r'sylvester stallone.png'
+oliwia_path = r'oliwia brazil.jpg'
+ariana_path = r'ariana grande.jpg'
+olga_path = r'Olga C.jpg'
+mateusz_path = r'Mateusz W.jpg'
+seba_path = r'seba ch.png'
 people_list = {
             stalone_path: 'Sylvester Stallone',
             oliwia_path: 'Olivia Brazil',
             ariana_path: 'Ariana Grande',
             olga_path: 'Olga C',
-            mateusz_path: 'Mateusz W'
+            mateusz_path: 'Mateusz W',
+            seba_path: 'Sebastian Ch'
 }
 total_man = 0
 total_woman = 0

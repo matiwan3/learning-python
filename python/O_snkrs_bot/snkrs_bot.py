@@ -8,6 +8,7 @@ from selenium.webdriver.common.keys import Keys
 import requests
 import bs4
 import time
+import getpass
 
 
 #URLS
@@ -48,6 +49,8 @@ def greetings(data,imieniny):
 
     #login
 def login_to_messenger():
+    bot_mail = input("Email: ")
+    bot_password = getpass.getpass("Password: ")
     driver.get(messenger)
     #Accepting the cookies
     try:
@@ -55,9 +58,9 @@ def login_to_messenger():
     except:
         accept_cookies = driver.find_element(By.XPATH,"//*[@title='Only allow essential cookies']").click()
     email = driver.find_element(By.ID,'email')
-    email.send_keys('#') #HERE ENTER THE email for login form
+    email.send_keys(bot_mail) #HERE ENTER THE email for login form
     my_password = driver.find_element(By.ID, 'pass')
-    my_password.send_keys('#') #HERE ENTER THE password for login in
+    my_password.send_keys(bot_password) #HERE ENTER THE password for login in
     login_but = driver.find_element(By.ID, 'loginbutton').click()
 
 def what_time():

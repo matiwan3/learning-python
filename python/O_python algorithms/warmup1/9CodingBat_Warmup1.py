@@ -9,3 +9,15 @@
 # not_string('x') → 'not x'
 # not_string('not bad') → 'not bad'
 
+def not_string(str):
+  y = ('not ' + str)
+  try:
+    if str[0] == 'n' and str[1] == 'o' and str[2] == 't' and str[3] == ' ':
+      return str
+    else:
+      return y
+  except:
+    if 'not' in str:
+      return str
+    else:
+      return y
