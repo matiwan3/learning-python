@@ -42,7 +42,7 @@ def get_rating(content):
     
 book_title = get_titles(content)
 book_prices = get_prices(content)
-book_rating = get_rating(content)s
+book_rating = get_rating(content)
 print(book_title)
 print(book_prices)
 print(book_rating)
