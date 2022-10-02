@@ -14,4 +14,3 @@ Python fields of interest: scripts, machine learning, data science, web apliacti
 </p>
 link to roadmaps: https://roadmap.sh/
 <br>
-<br>
