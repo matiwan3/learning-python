@@ -37,6 +37,7 @@ def who_to_chat(username):
     time.sleep(2)
     try:
         find_user = driver.find_element(By.XPATH,'/html/body/div[1]/div/div/div/div[2]/div/div/div/div[2]/div/div/div[1]/div[1]/div/div[1]/ul/li[1]/ul/li[2]').click()
+        find_user = driver.fint_element(By.XPATH, '/html/body/div[1]/div/div/div/div[2]/div/div/div/div[2]/div/div/div[1]/div[1]/div/div[1]/ul/li[2]/ul/li/div')
     except:
         find_user = driver.find_element(By.XPATH,'/html/body/div[1]/div/div/div/div[2]/div/div/div/div[2]/div/div/div[1]/div[1]/div/div[1]/ul/li[1]/ul/li[2]/div').click()
     
