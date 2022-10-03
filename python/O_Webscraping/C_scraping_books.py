@@ -8,8 +8,6 @@ import warnings
 #URL
 format_url = 'https://books.toscrape.com/catalogue/page-{}.html'
 
-
-
 def main():
     
     #Lists of data
@@ -81,7 +79,7 @@ def main():
 
     df = pd.DataFrame(raw_data, columns= ['Name', 'Price', 'Rating'])
     # print (df)
-    df.to_excel('raw_data.xls', encoding='utf-8',index=False)
+    df.to_excel('books_data.xls', encoding='utf-8',index=False)
     
     average_price = df[['Price']].mean().to_string()
     average_rating = df[['Rating']].mean().to_string()
