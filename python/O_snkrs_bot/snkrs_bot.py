@@ -9,13 +9,6 @@ import requests
 import bs4
 import time
 import getpass
-from tkinter import *
-import tkinter as tk
-from tkinter import *
-import tkinter as tk
-import time as tm
-from time import strftime
-
 
 #URLS
 messenger = 'https://www.messenger.com/'
