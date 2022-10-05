@@ -1,0 +1,124 @@
+from selenium import webdriver
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import time
+import getpass
+import os
+
+
+def gecko_drier():
+    PATH_TO_DEV_NULL = 'nul' #Turns off geckodriver log
+    options = Options()
+    options.add_argument('--headless') #hiding the browser
+    driver = webdriver.Firefox(executable_path=r'geckodriver.exe',service_log_path=PATH_TO_DEV_NULL)
+    #,options=options
+    driver.maximize_window()
+    self_actions = ActionChains(driver)
+    return driver,self_actions
+driver,self_actions = gecko_drier();
+
+#URLs
+weather_url = 'https://weather.com/pl-PL/pogoda/dzisiaj/l/PLXX0028:1:PL'
+
+def login():
+    ig_email = input("Enter instagram email: ")
+    ig_password = getpass.getpass(prompt="Enter instagram password: ", stream=None) 
+    print(ig_password)
+    print(ig_email)
+    return ig_email,ig_password
+
+#Liking posts
+def case_a():
+    profile_url = input("Enter profile url: ")
+    driver.get(profile_url)
+    
+
+#Commenting posts
+def case_b():
+    profile_url = input("Enter profile url: ")
+    driver.get(profile_url)
+    
+
+#Saving posts
+def case_c():
+    profile_url = input("Enter profile url: ")
+    driver.get(profile_url)
+
+
+def main():
+    os.system('CLS')
+    print(" ----------------------------------- ")
+    print(" |      WELCOME TO BROWSER BOT     | ")
+    print(" ----------------------------------- \n")
+    
+    chosing_task = True
+    while chosing_task:
+
+        print("1. Instagram")
+        print("2. Facebook")
+        print("3. TV")
+        print("4. Weather")
+        print("5. Quit")
+        action_number = input("\nMake your choice: ")
+        if action_number.isdigit():
+            #Instagram
+            if action_number == '1':
+                instagram = True
+                while instagram:
+                    print("\na. Liking posts")
+                    print("b. Commenting posts")
+                    print("c. Saving posts")
+                    print("d. return")
+                    action_char = input("\nMake your choice: ")
+                    
+                    if action_char == 'a':
+                        case_a()
+                        
+                    elif action_char == 'b':
+                        case_b()
+                        
+                    elif action_char == 'c':
+                        case_c()
+                        
+                    elif action_char == 'd':
+                        instagram = False
+                        
+                    else:
+                        print("Wrong choice")
+                    
+            #Facebook
+            elif action_number == '2':
+                pass
+            #TV
+            elif action_number == '3':
+                pass
+            #Weather
+            elif action_number == '4':
+                action_4 = True
+                driver.get(weather_url)
+                city = input("Enter a city: ")
+                driver.find_element(By.XPATH,"/html/body/div[1]/div[3]/div[1]/header/div/div[2]/div[1]/div").click()
+                while action_4:
+                    print("cookies accepted")
+                    driver.find_element(By.ID,'LocationSearch_input').send_keys(city)
+                    self_actions.send_keys(Keys.RETURN).perform()
+            
+            #Quit 
+            elif action_number == '5':
+               chosing_task = False
+               driver.close()
+                
+            else:
+                print("Wrong task number")
+        else:
+            print("Invalid input")
+ 
+    # input("Press any key to exit...")
+    # if input:
+    #     driver.close()
+    
+if __name__ == '__main__':
+    main()
+    
