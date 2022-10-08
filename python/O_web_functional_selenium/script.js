@@ -1,0 +1,1 @@
+form.FormBorderStyle = FormBorderStyle.None;
