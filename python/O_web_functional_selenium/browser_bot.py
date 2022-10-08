@@ -9,7 +9,7 @@ import re
 
 #URLs
 weather_url = 'https://weather.com/pl-PL/pogoda/dzisiaj/l/PLXX0028:1:PL'
-get_string_local = 'http://127.0.0.1:5500/O_instagram_liking_bot/index.html'
+get_string_local = 'http://127.0.0.1:5500/O_web_functional_selenium/index.html'
 
 def gecko_drier():
     PATH_TO_DEV_NULL = 'nul' #Turns off geckodriver log
@@ -22,21 +22,7 @@ def gecko_drier():
     return driver,self_actions
 driver,self_actions = gecko_drier();
 
-
-def login():
-    ig_email = input("Enter instagram email: ")
-    ig_password = getpass.getpass(prompt="Enter instagram password: ", stream=None) 
-    print(ig_password)
-    print(ig_email)
-    return ig_email,ig_password
-
-def option_5():
-    driver.get(get_string_local)
-    site_text = driver.find_element(By.XPATH, "/html/body/div/div[2]/p").text
-    match = re.search(r'[\w.+-]+@[\w-]+\.[\w.-]+', site_text)
-    print(f'\nemail found in the text: {match.group(0)}\n')
-    
-#Liking posts
+# INSTAGRAM Liking posts
 def case_a():
     profile_url = input("Enter profile url: ")
     driver.get(profile_url)
@@ -53,7 +39,36 @@ def case_c():
     profile_url = input("Enter profile url: ")
     driver.get(profile_url)
 
+def login():
+    ig_email = input("Enter instagram email: ")
+    ig_password = getpass.getpass(prompt="Enter instagram password: ", stream=None) 
+    print(ig_password)
+    print(ig_email)
+    return ig_email,ig_password
 
+def option_5(): #Run live server before chosing this option !!!
+    try:
+        print('Redricting...')
+        email_list = []
+        driver.get(get_string_local)
+        site_text = driver.find_element(By.XPATH, "/html/body/div/div[2]/p").text
+        match = re.findall(r'[\w.+-]+@[\w-]+\.[\w.-]+', site_text)
+        email_list.append(match)
+        print(f'\nemails matches in the text: {email_list}\n')
+    except:
+        print('Something went wrong. Try again.')
+
+def option_6():
+    user_URL = input("Enter URL: ")
+    try:
+        print("Redricting...")
+        driver.get(user_URL)
+    except:
+        print("Something went wrong...")
+
+
+
+#Main fnc
 def main():
     os.system('CLS')
     print(" ----------------------------------- ")
@@ -67,8 +82,9 @@ def main():
         print("2. Facebook")
         print("3. TV")
         print("4. Weather")
-        print("5. Find string") #Run live server before chosing this option !!!
-        print("6. Quit")
+        print("5. Find emails in text") #Run live server before chosing this option !!!
+        print("6. Your own URL")
+        print("7. Quit")
         action_number = input("\nMake your choice: ")
         if action_number.isdigit():
             #Instagram
@@ -109,15 +125,19 @@ def main():
                 city = input("Enter a city: ")
                 driver.find_element(By.XPATH,"/html/body/div[1]/div[3]/div[1]/header/div/div[2]/div[1]/div").click()
                 while action_4:
-                    print("cookies accepted")
-                    driver.find_element(By.ID,'LocationSearch_input').send_keys(city)
-                    self_actions.send_keys(Keys.RETURN).perform()
+                    # print("cookies accepted")
+                    try:
+                        driver.find_element(By.ID,'LocationSearch_input').send_keys(city)
+                        self_actions.send_keys(Keys.RETURN).perform()
+                    except:
+                        print("Something went wrong...")
+                        action_4 = False
             #Weather
             elif action_number == '5':
                 
                 option_5()
             #Quit 
-            elif action_number == '6':
+            elif action_number == '7':
                chosing_task = False
                driver.close()
                 
