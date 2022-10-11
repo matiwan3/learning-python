@@ -6,6 +6,7 @@ from selenium.webdriver.common.keys import Keys
 import getpass
 import os
 import re
+import time
 
 redricting_text = 'Redricting...'
 error_text = 'Something went wrong. Try again.\n'
@@ -67,7 +68,19 @@ def option_3():
         print(process_text)
     except:
         print(error_text)
-        
+def option_4():
+    
+    driver.get(weather_url)
+    # print("cookies accepted")
+    try:
+        city = input("Enter a city: ")
+        driver.find_element(By.XPATH,"/html/body/div[1]/div[3]/div[1]/header/div/div[2]/div[1]/div").click()
+        driver.find_element(By.ID,'LocationSearch_input').send_keys(city)
+        time.sleep(1)
+        self_actions.send_keys(Keys.RETURN).perform()
+    except:
+        print(error_text)
+        action_4 = False     
 def option_5(): #Run live server before chosing this option !!!
     try:
         print(redricting_text)
@@ -88,8 +101,6 @@ def option_6():
         print(process_text)
     except:
         print(error_text)
-
-
 
 #Main fnc
 def main():
@@ -144,18 +155,8 @@ def main():
                 option_3()
             #Weather
             elif action_number == '4':
-                action_4 = True
-                while action_4:
-                    driver.get(weather_url)
-                    city = input("Enter a city: ")
-                    # print("cookies accepted")
-                    try:
-                        driver.find_element(By.XPATH,"/html/body/div[1]/div[3]/div[1]/header/div/div[2]/div[1]/div").click()
-                        driver.find_element(By.ID,'LocationSearch_input').send_keys(city)
-                        self_actions.send_keys(Keys.RETURN).perform()
-                    except:
-                        print(error_text)
-                        action_4 = False
+                option_4()
+
             #Weather
             elif action_number == '5':
                 option_5()
