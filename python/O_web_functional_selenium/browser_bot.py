@@ -73,7 +73,7 @@ def option_5(): #Run live server before chosing this option !!!
         print(redricting_text)
         email_list = []
         driver.get(get_string_local)
-        site_text = driver.find_element(By.XPATH, "/html/body/div/div[2]/p").text
+        site_text = driver.find_element(By.XPATH, "/html/body/div/div[1]/p").text
         match = re.findall(r'[\w.+-]+@[\w-]+\.[\w.-]+', site_text) #Email pattern
         email_list.append(match)
         print(f'\nemails matches in the text: {email_list}\n')
@@ -180,4 +180,7 @@ def main():
     
 if __name__ == '__main__':
     main()
-    
+
+
+# git commit -am "changes 11.10"
+# git push
