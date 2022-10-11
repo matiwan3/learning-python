@@ -7,9 +7,15 @@ import getpass
 import os
 import re
 
+redricting_text = 'Redricting...'
+error_text = 'Something went wrong. Try again.\n'
+process_text = 'Loading completed\n'
+
 #URLs
 weather_url = 'https://weather.com/pl-PL/pogoda/dzisiaj/l/PLXX0028:1:PL'
 get_string_local = 'http://127.0.0.1:5500/O_web_functional_selenium/index.html'
+wp_pilot = 'https://pilot.wp.pl/tv/'
+facebook = 'https://www.facebook.com/'
 
 def gecko_drier():
     PATH_TO_DEV_NULL = 'nul' #Turns off geckodriver log
@@ -46,9 +52,25 @@ def login():
     print(ig_email)
     return ig_email,ig_password
 
+def option_2():
+    print(redricting_text)
+    try:
+        driver.get(facebook)
+        print(process_text)
+    except:
+        print(error_text)
+    
+def option_3():
+    print(redricting_text)
+    try:
+        driver.get(wp_pilot)
+        print(process_text)
+    except:
+        print(error_text)
+        
 def option_5(): #Run live server before chosing this option !!!
     try:
-        print('Redricting...')
+        print(redricting_text)
         email_list = []
         driver.get(get_string_local)
         site_text = driver.find_element(By.XPATH, "/html/body/div/div[2]/p").text
@@ -56,15 +78,16 @@ def option_5(): #Run live server before chosing this option !!!
         email_list.append(match)
         print(f'\nemails matches in the text: {email_list}\n')
     except:
-        print('Something went wrong. Try again.')
+        print(error_text)
 
 def option_6():
     user_URL = input("Enter URL: ")
     try:
-        print("Redricting...")
+        print(redricting_text)
         driver.get(user_URL)
+        print(process_text)
     except:
-        print("Something went wrong...")
+        print(error_text)
 
 
 
@@ -114,28 +137,33 @@ def main():
                     
             #Facebook
             elif action_number == '2':
-                pass
+                option_2()
+                    
             #TV
             elif action_number == '3':
-                pass
+                option_3()
             #Weather
             elif action_number == '4':
                 action_4 = True
-                driver.get(weather_url)
-                city = input("Enter a city: ")
-                driver.find_element(By.XPATH,"/html/body/div[1]/div[3]/div[1]/header/div/div[2]/div[1]/div").click()
                 while action_4:
+                    driver.get(weather_url)
+                    city = input("Enter a city: ")
                     # print("cookies accepted")
                     try:
+                        driver.find_element(By.XPATH,"/html/body/div[1]/div[3]/div[1]/header/div/div[2]/div[1]/div").click()
                         driver.find_element(By.ID,'LocationSearch_input').send_keys(city)
                         self_actions.send_keys(Keys.RETURN).perform()
                     except:
-                        print("Something went wrong...")
+                        print(error_text)
                         action_4 = False
             #Weather
             elif action_number == '5':
-                
                 option_5()
+                
+            #Own URL
+            elif action_number == '6':
+                option_6()
+                
             #Quit 
             elif action_number == '7':
                chosing_task = False
