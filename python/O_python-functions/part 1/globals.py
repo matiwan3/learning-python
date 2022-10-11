@@ -1,0 +1,4 @@
+# Globals
+# globals()
+
+print(globals())
