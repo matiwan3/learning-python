@@ -14,3 +14,7 @@ Python fields of interest: scripts, machine learning, data science, web apliacti
 </p>
 link to roadmaps: https://roadmap.sh/
 <br>
+<h2 align="center">Python road map 2</h2>
+<p align="center">
+  <img width="600" height="auto" src="https://user-images.githubusercontent.com/93386476/195340866-befc5974-eaa9-4684-8896-a7274aab1605.jpg">
+</p>
