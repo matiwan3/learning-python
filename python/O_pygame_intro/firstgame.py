@@ -95,10 +95,7 @@ def draw_window(red, yellow,red_bullets, yellow_bullets, red_health, yellow_heal
     
     WIN.blit(YELLOW_SPACESHIP, (yellow.x, yellow.y)) #use blit ot draw surfaces ex. ships, characters
     WIN.blit(RED_SPACESHIP, (red.x, red.y))
-    
-    
-    
-    
+
     for bullet in red_bullets:
         pygame.draw.rect(WIN, RED, bullet)
 
