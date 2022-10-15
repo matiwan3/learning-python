@@ -18,4 +18,3 @@ link to roadmaps: https://roadmap.sh/
 <p align="center">
   <img width="600" height="auto" src="https://user-images.githubusercontent.com/93386476/195340866-befc5974-eaa9-4684-8896-a7274aab1605.jpg">
 </p>
-<br>
