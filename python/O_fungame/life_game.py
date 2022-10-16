@@ -20,8 +20,11 @@ BACKGROUND_IMAGE = pygame.image.load("images/background2.jpg")
 BACKGROUND = pygame.transform.scale(BACKGROUND_IMAGE,(WIDTH,HEIGHT))
 
 
-MALE_CHARACTER_IMAGE = pygame.image.load(os.path.join("images\olenka gliniarz.png"))
+MALE_CHARACTER_IMAGE = pygame.image.load(os.path.join("images\mati_character.png"))
 MALE_CHARACTER = pygame.transform.scale(MALE_CHARACTER_IMAGE,(CHAR_WIDTH, CHAR_HEIGHT))
+
+FEMALE_CHARACTER_IMAGE = pygame.image.load(os.path.join("images\ola_character.png"))
+FEMALE_CHARACTER = pygame.transform.scale(FEMALE_CHARACTER_IMAGE,(CHAR_WIDTH, CHAR_HEIGHT))
 
 FPS = 60
 VEL = 1
@@ -29,9 +32,9 @@ VEL = 1
 mixer.music.load("sounds/pixelbit.mp3")
 mixer.music.play(loops=-1)
 
-def draw_window(char):
+def draw_window(type_of_char,char):
     WIN.blit(BACKGROUND,(0,0))
-    WIN.blit(MALE_CHARACTER, (char.x,char.y))
+    WIN.blit(type_of_char, (char.x,char.y))
     pygame.display.update()
     
 def char_movement(keys_pressed,char):
@@ -43,7 +46,22 @@ def char_movement(keys_pressed,char):
         char.y += VEL
         time.sleep(1)
         char.y -= VEL
-        
+def choose_char():
+    choosing = True
+    while choosing:
+        character_choice = input("Male/Female: ")
+        if character_choice == "Male":
+            type_of_char = MALE_CHARACTER
+            choosing = False
+
+        elif character_choice == "Female":
+            type_of_char = FEMALE_CHARACTER
+            choosing = False
+
+        else:
+            print("Wrong choice.\n")
+    return type_of_char
+
 def START_SCREEN(text):
     draw_text = START_FONT.render(text, 1, WHITE)
     WIN.blit(draw_text, (WIDTH/2 - draw_text.get_width()/2, HEIGHT/2 - draw_text.get_height()/2))
@@ -52,6 +70,9 @@ def START_SCREEN(text):
     
 #main loop
 def main():
+    type_of_char = choose_char()
+    # print(type_of_char)
+            
     clock = pygame.time.Clock()
     clock.tick(FPS)
     run = True
@@ -65,7 +86,7 @@ def main():
         # Char_type = START_SCREEN("Wybierz postać")
         keys_pressed = pygame.key.get_pressed()
         char_movement(keys_pressed,character)
-        draw_window(character)
+        draw_window(type_of_char,character)
 if __name__ =="__main__":
     main()
     
