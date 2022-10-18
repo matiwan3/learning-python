@@ -24,3 +24,6 @@ print("Sorted array is: ")
 for i in range(len(arr)):
     lst.append(arr[i])
 print(lst)
+
+# Time Complexity: O(N^2) 
+# Auxiliary Space: O(1)
