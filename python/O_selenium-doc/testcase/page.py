@@ -1,10 +1,16 @@
 from locator import *
+from element import BasePageElement
 
+class SearchTextElement(BasePageElement):
+    locator = "q"
+    
 class BasePage(object):
     def __init__(self, driver):
         self.driver = driver
         
 class MainPage(BasePage):
+    
+    search_text_element = SearchTextElement()
     
     def is_title_matches(self):
         return "Python" in self.driver.title
@@ -12,3 +18,8 @@ class MainPage(BasePage):
     def click_go_button(self):
         element = self.driver.find_element(*MainPageLocator.GO_BUTTON) # * stands for unpack
         element.click()
+        
+class SearchResultPage(BasePage):
+    
+    def is_result_found(self):
+        return "No results found." not in self.driver.page_source # return true if site does't include this string: "No results found."
