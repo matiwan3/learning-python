@@ -120,3 +120,34 @@ continue = driver.find_element(By.NAME, 'continue')
 #   </form>
 # </body>
 # </html>
+
+# The form elements can be located like this:
+
+login_form = driver.find_element(By.XPATH, "/html/body/form[1]")
+login_form = driver.find_element(By.XPATH, "//form[1]")
+login_form = driver.find_element(By.XPATH, "//form[@id='loginForm']")
+
+# Absolute path (would break if the HTML was changed only slightly)
+# First form element in the HTML
+# The form element with attribute id set to loginForm
+
+# The username element can be located like this:
+
+username = driver.find_element(By.XPATH, "//form[input/@name='username']")
+username = driver.find_element(By.XPATH, "//form[@id='loginForm']/input[1]")
+username = driver.find_element(By.XPATH, "//input[@name='username']")
+
+# First form element with an input child element with name set to username
+# First input child element of the form element with attribute id set to loginForm
+# First input element with attribute name set to username
+
+# the clear button element can be located like this
+
+clear_button = driver.find_element(By.XPATH, "//input[@name='continue'][@type='button']")
+clear_button = driver.find_element(By.XPATH, "//form[@id='loginForm']/input[4]")
+
+# Input with attribute name set to continue and attribute type set to button
+# Fourth input child element of the form element with attribute id set to loginForm
+
+
+
