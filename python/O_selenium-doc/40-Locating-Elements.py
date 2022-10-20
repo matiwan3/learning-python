@@ -1,3 +1,4 @@
+import this
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
@@ -51,10 +52,71 @@ driver.find_element(By.CSS_SELECTOR, "css selector")
 
 # For instance, consider this page source:
 
+# <html>
+#  <body>
+#   <form id="loginForm">
+#    <input name="username" type="text" />
+#    <input name="password" type="password" />
+#    <input name="continue" type="submit" value="Login" />
+#   </form>
+#  </body>
+# </html>
 
+# The form element can be located like this
+login_form = driver.find_element(By.ID, 'loginForm')
 
+# 4.2. Locating by Name
 
+# Use this when you know the name attribute of an element. 
+# With this strategy, the first element with a matching name attribute will be returned. 
+# If no element has a matching name attribute, a NoSuchElementException will be raised.
 
+# For instance, consider this page source:
 
+# <html>
+#  <body>
+#   <form id="loginForm">
+#    <input name="username" type="text" />
+#    <input name="password" type="password" />
+#    <input name="continue" type="submit" value="Login" />
+#    <input name="continue" type="button" value="Clear" />
+#   </form>
+# </body>
+# </html>
 
+# The username & password elements can be located like this:
 
+username = driver.find_element(By.NAME, 'username')
+password = driver.find_element(By.NAME, 'password')
+
+# This will give the "Login" button as it occurs before the "Clear" button:
+
+continue = driver.find_element(By.NAME, 'continue')
+
+# 4.3. Locating by XPath
+# XPath is the language used for locating nodes in an XML document. 
+# As HTML can be an implementation of XML (XHTML), Selenium users can leverage this powerful language to 
+# target elements in their web applications. XPath supports the simple methods of locating by id or name attributes 
+# and extends them by opening up all sorts of new possibilities such as locating the third checkbox on the page.
+
+# One of the main reasons for using XPath is when you don’t have a suitable id or name attribute for the element you wish to locate.
+# You can use XPath to either locate the element in absolute terms (not advised), or relative to an element that 
+# does have an id or name attribute. XPath locators can also be used to specify elements via attributes other than id and name.
+
+# Absolute XPaths contain the location of all elements from the root (html) and as a result are 
+# likely to fail with only the slightest adjustment to the application. By finding a nearby element with an id or 
+# name attribute (ideally a parent element) you can locate your target element based on the relationship. 
+# This is much less likely to change and can make your tests more robust.
+
+# For instance, consider this page source:
+
+# <html>
+#  <body>
+#   <form id="loginForm">
+#    <input name="username" type="text" />
+#    <input name="password" type="password" />
+#    <input name="continue" type="submit" value="Login" />
+#    <input name="continue" type="button" value="Clear" />
+#   </form>
+# </body>
+# </html>
