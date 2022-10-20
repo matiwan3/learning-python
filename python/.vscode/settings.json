@@ -1,6 +1,19 @@
 {
-    "terminal.integradet.defaultProfile.windows": "Command Prompt",
-    
-
-
+    "prettier.semi": false,
+    "background.enabled": true,
+    "background.useDefault": false,
+    "background.useFront": false,
+    "background.loop": false,
+    "background.style": {
+        // "background-repeat": "no-repeat",
+        "background-size": "cover",
+        "position": "absolute",
+        "opacity": 0.1,
+        "width": "100%",
+        "height": "100%",
+    },
+    "background.customImages": [
+        "https://r4.wallpaperflare.com/wallpaper/848/927/678/minimalism-texture-black-background-black-armor-wallpaper-3940e82dc1ca9d1b563768efd081268d.jpg"
+    ],
+    "editor.renderLineHighlight": "none"
 }
