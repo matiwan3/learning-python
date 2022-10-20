@@ -33,7 +33,7 @@ CSS_SELECTOR = "css selector"
 
 # The ‘By’ class is used to specify which attribute is used to locate elements on a page. 
 # These are the various ways the attributes are used to locate elements on a page:
-driver.find_element(By.ID "id")
+driver.find_element(By.ID, "id")
 driver.find_element(By.NAME, "name")
 driver.find_element(By.XPATH, "xpath")
 driver.find_element(By.LINK_TEXT, "link text")
@@ -91,7 +91,7 @@ password = driver.find_element(By.NAME, 'password')
 
 # This will give the "Login" button as it occurs before the "Clear" button:
 
-continue = driver.find_element(By.NAME, 'continue')
+# continue = driver.find_element(By.NAME, 'continue')
 
 # 4.3. Locating by XPath
 # XPath is the language used for locating nodes in an XML document. 
@@ -149,5 +149,78 @@ clear_button = driver.find_element(By.XPATH, "//form[@id='loginForm']/input[4]")
 # Input with attribute name set to continue and attribute type set to button
 # Fourth input child element of the form element with attribute id set to loginForm
 
+# 4.4. Locating Hyperlinks by Link Text
 
+# Use this when you know the link text used within an anchor tag. 
+# With this strategy, the first element with the link text matching the provided value will be returned. 
+# If no element has a matching link text attribute, a NoSuchElementException will be raised.
 
+# For instance, consider this page source
+
+# <html>
+#  <body>
+#   <p>Are you sure you want to do this?</p>
+#   <a href="continue.html">Continue</a>
+#   <a href="cancel.html">Cancel</a>
+# </body>
+# </html>
+
+# The continue.html link can be located like this:
+
+continue_link = driver.find_element(By.LINK_TEXT, 'Continue')
+continue_link = driver.find_element(By.PARTIAL_LINK_TEXT, 'Conti')
+
+# 4.5. Locating Elements by Tag Name
+
+# Use this when you want to locate an element by tag name. 
+# With this strategy, the first element with the given tag name will be returned. 
+# If no element has a matching tag name, a NoSuchElementException will be raised.
+
+# For instance, consider this page source:
+
+# <html>
+#  <body>
+#   <h1>Welcome</h1>
+#   <p>Site content goes here.</p>
+# </body>
+# </html>
+
+# The heading (h1) element can be located like this:
+
+heading1 = driver.find_element(By.TAG_NAME, 'h1')
+
+# 4.6. Locating Elements by Class Name
+
+# Use this when you want to locate an element by class name. 
+# With this strategy, the first element with the matching class name attribute will be returned. 
+# If no element has a matching class name attribute, a NoSuchElementException will be raised.
+
+# For instance, consider this page source:
+
+# <html>
+#  <body>
+#   <p class="content">Site content goes here.</p>
+# </body>
+# </html>
+
+# The “p” element can be located like this:
+
+content = driver.find_element(By.CLASS_NAME, 'content')
+
+# 4.7. Locating Elements by CSS Selectors
+
+# Use this when you want to locate an element using CSS selector syntax. 
+# With this strategy, the first element matching the given CSS selector will be returned. 
+# If no element matches the provided CSS selector, a NoSuchElementException will be raised.
+
+# For instance, consider this page source:
+
+# <html>
+#  <body>
+#   <p class="content">Site content goes here.</p>
+# </body>
+# </html>
+
+# The “p” element can be located like this:
+
+content = driver.find_element(By.CSS_SELECTOR, 'p.content')
