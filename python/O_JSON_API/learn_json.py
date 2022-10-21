@@ -11,4 +11,10 @@ requests.get('https://api.covid19api.com/summary').json()
 response_info = json.loads(response)
 # print(response)
 # print(response_info)
-print(type(response_info))
+# print(type(response_info))
+
+country_list = []
+
+for country_info in response_info['Countries']:
+    country_list.append([country_info['Country'],
+    country_info['TotalConfirmed']])
