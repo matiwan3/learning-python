@@ -2,8 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 
-path = r'geckodriver.exe'
-driver = webdriver.Firefox(executable_path=path)
+path = r'driver-chrome.exe'
+driver = webdriver.Chrome(executable_path=path)
 driver.get("https://orteil.dashnet.org/cookieclicker/")
 
 driver.implicitly_wait(5) #dont pass this line for 5 seconds

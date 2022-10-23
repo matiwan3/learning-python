@@ -16,27 +16,32 @@ dropsy = 'https://dropsy.app/pl'
 kalendarz = 'https://halloween.friko.net/imieniny/'
 
 PATH_TO_DEV_NULL = 'nul' #Turns off geckodriver log
-driver = webdriver.Firefox(executable_path=r'geckodriver.exe',service_log_path=PATH_TO_DEV_NULL)
+path_chrome = r'driver-chrome.exe'
+path_firefox = r'driver-firefox.exe'
+options = webdriver.ChromeOptions()
+options.add_experimental_option('excludeSwitches', ['enable-logging'])
+driver = webdriver.Chrome(executable_path=path_chrome,options=options)
 self_actions = ActionChains(driver)
 
 #login
 def login_to_messenger():
-    bot_mail = input("Email: ")
-    bot_password = input("Password: ")
+    BOT_MAIL = input("Email: ")
+    BOT_PASSWORD = input("Password: ")
     driver.get(messenger)
+    
     #Accepting the cookies
+    ACCEPT_COOKIES = '/html/body/div[2]/div[2]/div/div/div/div/div[3]/button[2]'
     try:
-        # accept_cookies
-        driver.find_element(By.XPATH,"//*[@title='Zezwól tylko na niezbędne pliki cookie']").click()
+        driver.find_element(By.XPATH, ACCEPT_COOKIES).click()
     except:
-        # accept_cookies
-        driver.find_element(By.XPATH,"//*[@title='Only allow essential cookies']").click()
+        print("Button not found")
+            
     email = driver.find_element(By.ID,'email')
-    email.send_keys(bot_mail) #HERE ENTER THE email for login form
+    email.send_keys(BOT_MAIL) #HERE ENTER THE email for login form
     my_password = driver.find_element(By.ID, 'pass')
-    my_password.send_keys(bot_password) #HERE ENTER THE password for login in
+    my_password.send_keys(BOT_PASSWORD) #HERE ENTER THE password for login in
     driver.find_element(By.ID, 'loginbutton').click()
-    # return bot_mail,bot_password
+    # return BOT_MAIL,BOT_PASSWORD
 
 def get_imieniny():
     result = requests.get(kalendarz)
@@ -50,20 +55,26 @@ def get_imieniny():
 dzisiejsza_data,imieniny = get_imieniny()
 
 def who_to_chat(username):
+    KNOWN_USER = '/html/body/div[1]/div/div/div/div[2]/div/div/div/div[2]/div/div/div[1]/div[1]/div/div[1]/ul/li/ul/li[2]'
+    NEW_USER = '/html/body/div[1]/div/div/div/div[2]/div/div/div/div[2]/div/div/div[1]/div[1]/div/div[1]/ul/li[2]/ul/li[1]'
+    SEARCH_BOX = '/html/body/div[1]/div/div/div/div[2]/div/div/div/div[1]/div[1]/div[1]/div/div[2]/div/div/div/div/div[2]/div'
+    # /html/body/div[1]/div/div/div/div[2]/div/div/div/div[1]/div[1]/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div/div/div/label/input
+    NOT_FOUND_TEXT = 'User not found'
     
-    find_user = driver.find_element(By.XPATH,'/html/body/div[1]/div/div/div/div[2]/div/div/div/div[1]/div[1]/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div/div/div/label/input')
-    find_user.send_keys(username)    
+    type_user = driver.find_element(By.XPATH, SEARCH_BOX)
+    type_user.clear()
+    type_user.send_keys(username)    
     time.sleep(2)
+    
     try:
-        find_user = driver.find_element(By.XPATH,'/html/body/div[1]/div/div/div/div[2]/div/div/div/div[2]/div/div/div[1]/div[1]/div/div[1]/ul/li[1]/ul/li[2]').click()
-        find_user = driver.fint_element(By.XPATH, '/html/body/div[1]/div/div/div/div[2]/div/div/div/div[2]/div/div/div[1]/div[1]/div/div[1]/ul/li[2]/ul/li/div')
-        find_user = driver.find_element(By.XPATH,'/html/body/div[1]/div/div/div/div[2]/div/div/div/div[2]/div/div/div[1]/div[1]/div/div[1]/ul/li[1]/ul/li[2]/div').click()
-        find_user = driver.find_element(By.XPATH,'/html/body/div[1]/div/div/div/div[2]/div/div/div/div[2]/div/div/div[1]/div[1]/div/div[1]/ul/li[2]/ul/li[1]/div').click()
+        find_user = driver.find_element(By.XPATH, KNOWN_USER).click()
+        if "More People" in driver.page_source:
+            try:
+                find_user = driver.find_element(By.XPATH, NEW_USER).click()
+            except:
+                print(NOT_FOUND_TEXT)
     except:
-        print('error')
-    else:
-        print('User found')
-
+        print(NOT_FOUND_TEXT)
 
     #sending a greet
 def greetings(data,imieniny):
@@ -74,23 +85,17 @@ def what_time():
     now = time.strftime("%H:%M:%S")
     return now
 
-# def backspace(n):
-#     self_actions.send_keys(Keys.BACK_SPACE).perform(n)
-
 def main():
-    n = 0
     Botis = True
     
     while Botis:
-        
         get_imieniny()
         login_to_messenger()
         username = input('Piszę do: ')
         who_to_chat(username)
         
         texting = True
-        while texting:
-            
+        while texting:  
             #Wysyłanie własnych wiadomości + KOMENDY
             send_text = input("Send message: ")
             if send_text =='/quit':
@@ -107,21 +112,11 @@ def main():
                 time = what_time()
                 self_actions.send_keys(f'Botis: Jest godzina {time}').perform()
                 self_actions.send_keys(Keys.RETURN).perform()
-                
-            # elif send_text  == '/b':
-            #     n = input('How many backapces?: ')
-            #     int(n)
-            #     if n.isdigit():
-            #         backspace(n)
-            #     else:
-            #         print('Wrong amount of backspaces')
-                
+               
             else:
                 self_actions.send_keys('Botis: ' + send_text).perform()
                 self_actions.send_keys(Keys.RETURN).perform()
 
-        
-        
         #Wyjście
         input("Press any key to exit...")
         if input:
