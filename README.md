@@ -1,11 +1,11 @@
 # Local_Projects: PYTHON
-### Python is the language that im currently working on the most.  <br>Learning python gives me a lot of motivation for developing myself more and more.<br> I really enjoy creating webscripts using selenium and requests ⭐  <br>In this repository Im posting lot of basics and complex projects.  
+  In this repository Im posting lot of basics and complex projects. <br>
+  Python fields of interest: scripts, machine learning, data science, web testing (selenium), mostly backend for now;   🐍  
 <hr>
-Python fields of interest: scripts, machine learning, data science, web testing (selenium);   🐍  
-<hr>  
-<p align="center">
-  <img width="600" height="300" src="https://user-images.githubusercontent.com/93386476/188823548-45591dae-ac49-41ad-bc5b-ecf7b66f6967.jpg">
-</p>
+
+# *PEP 8*
+https://realpython.com/python-pep8/
+
 <hr>
 <br>
 <h2 align="center">Python road map</h2>
@@ -18,3 +18,4 @@ link to roadmaps: https://roadmap.sh/
 <p align="center">
   <img width="600" height="auto" src="https://user-images.githubusercontent.com/93386476/195340866-befc5974-eaa9-4684-8896-a7274aab1605.jpg">
 </p>
+<hr>
