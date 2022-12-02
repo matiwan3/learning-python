@@ -3,7 +3,7 @@
   Python fields of interest: scripts, machine learning, data science, web testing (selenium), mostly backend for now;   🐍  
 <hr>
 
-# *PEP 8*
+# *PEP 8
 https://realpython.com/python-pep8/
 
 <hr>
