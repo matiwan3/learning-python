@@ -22,7 +22,7 @@ import matplotlib
 
 response = requests.get('https://api.covid19api.com/summary').text
 requests.get('https://api.covid19api.com/summary').json()
-response_info = json.loads(response)
+
 # print(response)
 # print(response_info)
 # print(type(response_info))
