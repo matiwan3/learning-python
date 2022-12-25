@@ -3,7 +3,6 @@ import random
 
 lower_case = 'abcdefghijklmnoprstuwxyz'
 upper_case = lower_case.upper()
-print(upper_case)
 numbers = '1234567890'
 signs = '~!@#$%^&*()_+-={}|[]\:;<>,.?/'
 
