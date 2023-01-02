@@ -16,5 +16,6 @@
         "https://r4.wallpaperflare.com/wallpaper/848/927/678/minimalism-texture-black-background-black-armor-wallpaper-3940e82dc1ca9d1b563768efd081268d.jpg"
     ],
     
-    "editor.renderLineHighlight": "none"
+    "editor.renderLineHighlight": "none",
+    "python.linting.enabled": false
 }
