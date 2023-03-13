@@ -1,5 +1,25 @@
 """
+Let's start the year learning "decorator pattern" in #python 🙌
+
+
+This pattern allows a user to add new functionality to an existing object without altering its structure.
+Creating a decorator class which wraps the original class and provides additional functionality keeping class methods signature intact.
+
+When to use it?
+- Want to augment an object with additional functionality.
+- Do not want to rewrite or alter existing code.
+- Want to keep new functionality separate.
+
+Now, let's see it in action: 👀
+
+1. Let's begin creating an interface.
+An interface is used to specify the behavior of a class, we can achieve this with "abc" module.
+
+2. Then create the component class that can be decorated.
+
+3. Create the decorator class.
 Decorator concept sample code
+
 
 """
 
