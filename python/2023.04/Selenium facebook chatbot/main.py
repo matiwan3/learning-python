@@ -7,17 +7,24 @@ import logging
 
 # python_site = driver.get("http://www.python.org")
 
-logger = logging.getLogger('selenium.webdriver.remote.remote_connection')
-logger.setLevel(logging.WARNING)
-driver = webdriver.Chrome(executable_path='chromedriver.exe')
-print("Sending request to open facebook...")
-facebook_site = driver.get("https://m.facebook.com")
-print("Facebook login page loaded!")
+options = webdriver.ChromeOptions() 
+# to supress the error messages/logs
+options.add_experimental_option('excludeSwitches', ['enable-logging'])
+driver = webdriver.Chrome(options=options, executable_path='chromedriver.exe')
+driver = webdriver.Chrome()
+
+try:
+    print("Sending request to open facebook...")
+    driver.get("https://m.facebook.com")
+    print("Facebook login page loaded!")
+except:
+    print("Loading page error occurred!")
 
 def login_page(driver):
     username = input("Username: ")
     password = getpass.getpass('Password: ')
     print(f"Your username is: {username} and password is: {password}")
+    driver.close()
 login_page(driver)
     
 
