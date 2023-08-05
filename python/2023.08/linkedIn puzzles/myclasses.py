@@ -35,8 +35,6 @@ class triangle90:
     def LongestSide(self):
         return max(self.a,self.b,self.c)
     
-    
-    
 print(triangle90(3,4,8).perimeter())
 print(triangle90(3,2,7).area())
 print(triangle90(4,4,15).LongestSide())
