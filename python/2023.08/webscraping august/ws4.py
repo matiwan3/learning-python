@@ -16,4 +16,6 @@ def ip_address():
         print("Error while getting the local IP address:", e)
         return None
     
+def myUpper(anyword):
+    return str(anyword).upper()
 # print(ip_address())
