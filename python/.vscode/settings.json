@@ -24,8 +24,11 @@
         "-s",
         "./2023.08",
         "-p",
-        "*_test.py"
+        "test_*.py"
     ],
     "python.testing.pytestEnabled": true,
-    "python.testing.unittestEnabled": true
+    "python.testing.unittestEnabled": true,
+    "python.testing.pytestArgs": [
+        "2023.08"
+    ]
 }
