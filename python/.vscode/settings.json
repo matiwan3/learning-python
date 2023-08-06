@@ -18,6 +18,7 @@
     
     "editor.renderLineHighlight": "none",
     "python.linting.enabled": false,
+    "python.testing.autoTestDiscoverOnSaveEnabled": true,
     "python.testing.unittestArgs": [
         "-v",
         "-s",
@@ -25,6 +26,6 @@
         "-p",
         "*_test.py"
     ],
-    "python.testing.pytestEnabled": false,
+    "python.testing.pytestEnabled": true,
     "python.testing.unittestEnabled": true
 }
