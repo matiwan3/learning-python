@@ -1,6 +1,6 @@
 import pytest
 
-from ws4 import additions, ip_address, myUpper
+from ws4 import additions, ip_address, myUpper, gameCharacter
 
 def test_equation():
     assert 3==3
@@ -16,4 +16,9 @@ def test_host_ip():
 @pytest.mark.parametrize("word", [("gold"), ("POLITE"), ("NeIghborhood"), ("Last time i saw you")])
 def test_myUpper(word):
     assert myUpper(word).isupper()
+    
+def test_Aatrox():
+    character_Aatrox = gameCharacter(1000, 20, 50, ("Warrior", "Darkin"))
+    assert character_Aatrox.health == 1000
+    
          

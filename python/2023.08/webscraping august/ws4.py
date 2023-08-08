@@ -19,3 +19,29 @@ def ip_address():
 def myUpper(anyword):
     return str(anyword).upper()
 # print(ip_address())
+
+class gameCharacter():
+    def __init__(self, health, ability_power, strength, traits):
+        if not isinstance(health, int) or not isinstance(ability_power, int) or not isinstance(strength, int):
+            raise TypeError("health, ability_power and strength must be integers")
+        if not isinstance(traits, (str, tuple, list)):
+            raise TypeError("traits must be a string, tuple, or list")
+        
+        self.health = health
+        self.ability_power = ability_power
+        self.strength = strength
+        self.traits = traits
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
