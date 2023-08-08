@@ -19,6 +19,7 @@ def test_myUpper(word):
     
 def test_Aatrox():
     character_Aatrox = gameCharacter(1000, 20, 50, ("Warrior", "Darkin"))
-    assert character_Aatrox.health == 1000
+    character_Teemo = gameCharacter(600, 100, 40, (10))
+    assert character_Aatrox.health == 1000 and character_Teemo.traits == 10
     
          
