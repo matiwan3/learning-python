@@ -17,9 +17,8 @@ def test_host_ip():
 def test_myUpper(word):
     assert myUpper(word).isupper()
     
-def test_Aatrox():
-    character_Aatrox = gameCharacter(1000, 20, 50, ("Warrior", "Darkin"))
-    character_Teemo = gameCharacter(600, 100, 40, (10))
-    assert character_Aatrox.health == 1000 and character_Teemo.traits == 10
+def test_character():
+    character_1 = gameCharacter(1000, 20, 50, ("Warrior", "Darkin"))
+    character_2 = gameCharacter(600, 100, 40, ("Yordle", "Cruel"))
+    assert (character_1.health == 1000) and ("Cruel" in character_2.traits) 
     
-         

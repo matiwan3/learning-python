@@ -22,7 +22,14 @@ def commit_changes(commit_message):
     subprocess.run(["git", "push"])
 
 def main():
+    # Specify the repository location
+    repo_location = r"C:\Users\mateu\Documents\GitHub\local_projects\python\2023.08\Auto git commit"
+
+    # Change the current working directory to the repository location
+    os.chdir(repo_location)
+
     # Read the current version from the first line of the file
+    txt_file_path = os.path.join(repo_location, "autoCommit.txt")
     current_version = ""
     if os.path.exists(txt_file_path):
         with open(txt_file_path, "r") as txt_file:
