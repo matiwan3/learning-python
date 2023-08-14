@@ -6,25 +6,26 @@ import subprocess
 # Specify the repository location
 repo_location = r"C:\Users\mateu\Documents\GitHub\local_projects\python\2023.08\Auto git commit"
 txt_file_path = os.path.join(repo_location, "autoCommit.txt")
+
+# set the icon
 if getattr(sys, 'frozen', False):
     icon_path = os.path.join(sys._MEIPASS, "ac.ico")
 else:
     icon_path = "ac.ico"
 
+# set proper version
 def get_next_version(version):
     major, minor = version.split(".")
     next_minor = int(minor) + 1
     return f"{major}.{next_minor}"
 
+# uses console subprocess to run following commands
 def commit_changes(commit_message):
     subprocess.run(["git", "add", "autoCommit.txt"])
     subprocess.run(["git", "commit", "-m", commit_message])
     subprocess.run(["git", "push"])
 
-def main():
-    # Specify the repository location
-    repo_location = r"C:\Users\mateu\Documents\GitHub\local_projects\python\2023.08\Auto git commit"
-
+def main(repo_location):
     # Change the current working directory to the repository location
     os.chdir(repo_location)
 
@@ -58,4 +59,4 @@ def main():
     commit_changes(commit_message)
 
 if __name__ == "__main__":
-    main()
+    main(repo_location)

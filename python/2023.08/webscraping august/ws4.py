@@ -32,7 +32,33 @@ class gameCharacter():
         self.strength = strength
         self.traits = traits
         
+class NumberAlgo():
+    def __init__(self, my_array):
+        if not isinstance(my_array, list):
+            raise TypeError("my_array must be list")
         
+        self.my_array = my_array
+        
+    def max(self):
+        max_num = float('-inf')
+        for x in range(len(self.my_array)):
+            if self.my_array[x] >= max_num:
+                max_num = self.my_array[x]
+        return max_num
+    
+    def min(self):
+        min_num = float('inf')
+        for x in range(len(self.my_array)):
+            if self.my_array[x] <= min_num:
+                min_num = self.my_array[x]
+        return min_num
+    
+    def avg(self):
+        sum = 0
+        for x in range(len(self.my_array)):
+            sum += self.my_array[x]
+        avg = sum / len(self.my_array)
+        return round(avg, 3)
         
         
         
