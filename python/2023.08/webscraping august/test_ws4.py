@@ -25,3 +25,8 @@ def test_character():
 def test_NumberAlgo(my_list):
     test_list = NumberAlgo(my_list)
     assert test_list.max() == 102 and test_list.min() == 3 and test_list.avg() == 51.25
+    
+def test_med():
+    list1 = [1,5,64,234,123,7,34,24,6,87,45,908,44]
+    sorted_list1 = NumberAlgo(list1)
+    assert sorted_list1.med() == 44

@@ -59,6 +59,12 @@ class NumberAlgo():
             sum += self.my_array[x]
         avg = sum / len(self.my_array)
         return round(avg, 3)
+    
+    def med(self):
+        sorted_arr = sorted(self.my_array)
+        med = sorted_arr[(len(sorted_arr) - 1)//2]
+        return med
+        
         
         
         
