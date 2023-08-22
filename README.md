@@ -1,4 +1,4 @@
-# Local_Projects: PYTHONn
+# Local_Projects: PYTHON
   In this repository Im posting lot of basics and complex projects. <br>
   Python fields of interest: scripts, machine learning, data science, web testing (selenium), mostly backend for now;   🐍  
 <hr>
