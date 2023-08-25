@@ -1,0 +1,1 @@
+# libs: NumPy, Pandas, SciPy,tenserFlow, matplotlib, Keras, SciKit-Learn, PyTorch, Scrapy, BeautifulSoap, LightGBM, ELI5, Theano, NuPIC, Ramp, Pipenv, Bob, PyBrain, Caffe2, Chainer
