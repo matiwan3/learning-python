@@ -65,8 +65,16 @@ class NumberAlgo():
         med = sorted_arr[(len(sorted_arr) - 1)//2]
         return med
         
+    
+class CarInfo():
+    def __init__(self, base_price, mileage, prod_year, still_factor):
+        self.base_price = base_price
+        self.mileage = mileage
+        self.prod_year = prod_year
+        self.other_factors = still_factor
         
-        
+    def PriceNow(self):
+        actual_price = self.base_price - ((2023-self.prod_year) self.mileage self.still_factor)
         
         
         
