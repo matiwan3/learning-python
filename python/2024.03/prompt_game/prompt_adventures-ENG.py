@@ -1,3 +1,4 @@
+# MIRO BOARD: https://miro.com/app/board/uXjVKavmm8k=/?share_link_id=408092236856
 import random
 
 unitClassNameArcher = 'Archer'
@@ -6,12 +7,18 @@ unitClassNameWarrior = 'Warrior'
 unitClassNameNinja = 'Ninja'
 unitClassNameGuardian = 'Guardian'
 
-def classChooseInfo(unitClassName):
-    print(f'\nYou chose: {unitClassName}')
+def setCharacterName():
+    characterName = input('Choose your name: ')
+    return characterName
+
+def classChooseInfo(unit_class):
+    print(f'\nYou chose: {unit_class}')
     
 def getStats(health, armor, strength, stamina, tool, gold):
     print(f'Current stats of your character: \nHealth: {health}\nArmor: {armor}\nStrength: {strength}\nStamina: {stamina}\nTool: {tool}\nGold: {gold}')
-    
+
+def prologue(character_name):
+    print(f'Welcome in Basland. ')
 
 def welcomePrompt():
     print('---------------------------------------------')
@@ -69,12 +76,17 @@ class UnitGuardian:
         classChooseInfo(unitClassNameGuardian)
 
 def main():
+    # Game settings
     run = True
+    sounds = True
+    
     while run: 
         welcomePrompt()
         unit = unitChoose()
         if unit == 0:
             break
+        
+        
         unit.getGold()
         run = False
     
